@@ -1,0 +1,195 @@
+@keyframes slide-in-smooth {
+  0% {
+    transform: translateX(100%);
+    opacity: 0.2;
+  }
+  60% {
+    transform: translateX(-8px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-smooth {
+  animation: slide-in-smooth 0.38s cubic-bezier(0.4,0,0.2,1);
+}
+/** @import must precede all other statements */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Jost:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,300;1,300&family=Quicksand:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Brand: warm construction orange */
+    --primary: 24 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 24 100% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 24 100% 40%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 24 100% 50%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 24 100% 96%;
+    --sidebar-accent-foreground: 24 100% 15%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 24 100% 45%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 24 100% 60%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 24 100% 60%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 24 100% 60%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 24 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 24 30% 20%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 24 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', sans-serif;
+    background-image: radial-gradient(1000px 300px at 50% -10%, rgba(255, 122, 26, 0.12), transparent),
+      radial-gradient(800px 200px at 10% 10%, rgba(255, 122, 26, 0.06), transparent),
+      radial-gradient(800px 200px at 90% 20%, rgba(40, 40, 40, 0.06), transparent);
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+  }
+
+  /* Hide native cursor and use custom circle */
+  body { cursor: none; }
+  a, button, [role="button"], input, textarea, select, .btn-primary, .btn-outline { cursor: none; }
+
+  img { transition: transform 0.5s ease; }
+  img:hover { transform: scale(1.05); }
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-normal;
+    font-family: 'Quicksand', sans-serif;
+  }
+  h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-normal;
+    font-family: 'Quicksand', sans-serif;
+  }
+  h3 {
+    @apply text-xl md:text-2xl font-normal;
+    font-family: 'Quicksand', sans-serif;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-lg dark:bg-neutral-900/30 dark:border-white/10;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-primary text-primary-foreground px-5 py-3 font-semibold shadow-md shadow-primary/20 hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:brightness-95 transition;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/40 bg-transparent px-5 py-3 font-semibold text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/60 transition;
+  }
+  .blob {
+    @apply absolute rounded-full blur-2xl opacity-30 pointer-events-none;
+    background: radial-gradient(circle at 30% 30%, rgba(255,122,26,.6), rgba(255,122,26,0));
+  }
+}
+
+/* Custom cursor circle */
+.cursor-dot {
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 16px; height: 16px;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  border: 2px solid rgba(255,122,26,0.85);
+  background: rgba(255,122,26,0.12);
+  pointer-events: none;
+  transition: width .2s ease, height .2s ease, border-color .2s ease, background .2s ease;
+}
+.cursor-dot.is-active { width: 40px; height: 40px; background: rgba(255,122,26,0.15); border-color: rgba(255,122,26,1); }
+
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-lg dark:bg-neutral-900/30 dark:border-white/10;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-primary text-primary-foreground px-5 py-3 font-semibold shadow-md shadow-primary/20 hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:brightness-95 transition;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/40 bg-transparent px-5 py-3 font-semibold text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/60 transition;
+  }
+}

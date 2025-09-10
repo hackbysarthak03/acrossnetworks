@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ff7a1a" />
+    <meta name="description" content="Premium construction services — design, build, and deliver with precision and trust." />
+    <title>BuildRight Construction</title>
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="module" src="/client/App.tsx"></script>
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        if (window.AOS) {
+          window.AOS.init({ once: true, duration: 800, easing: 'ease-out-quad' });
+        }
+      });
+    </script>
+  </body>
+</html>
