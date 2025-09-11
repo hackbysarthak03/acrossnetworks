@@ -1,3 +1,10 @@
+/** @import must precede all other statements */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Jost:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,300;1,300&family=Quicksand:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @keyframes slide-in-smooth {
   0% {
     transform: translateX(100%);
@@ -19,12 +26,7 @@
 .animate-slide-in-smooth {
   animation: slide-in-smooth 0.38s cubic-bezier(0.4,0,0.2,1);
 }
-/** @import must precede all other statements */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Jost:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,300;1,300&family=Quicksand:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   /**
